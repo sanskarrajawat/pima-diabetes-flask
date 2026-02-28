@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+    font-family:Arial;
+    margin:0;
+    padding:20px;
+    background: linear-gradient(135deg,#dbeafe,#eef2ff);
+}
+
+h2{
+    text-align:center;
+    color:#1e3a8a;
+    margin-bottom:25px;
+}
+
+/* CARDS */
+.cards{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    margin-bottom:30px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    width:200px;
+    text-align:center;
+    border-radius:14px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* TABLE */
+table{
+    margin:auto;
+    border-collapse:collapse;
+    width:90%;
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+
+th,td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+}
+
+th{
+    background:#1e3a8a;
+    color:white;
+}
+
+tr:hover{
+    background:#f1f5ff;
+}
+
+.logout{
+    text-align:center;
+    margin-top:25px;
+}
+
+.logout a{
+    padding:10px 20px;
+    background:#1e3a8a;
+    color:white;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+.chart{
+    width:350px;
+    margin:40px auto;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>Admin Dashboard</h2>
+
+<div class="cards">
+    <div class="card">
+        <h3>Total</h3>
+        <h2>{{ total }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>High Risk</h3>
+        <h2>{{ high }}</h2>
+    </div>
+
+    <div class="card">
+        <h3>Low Risk</h3>
+        <h2>{{ low }}</h2>
+    </div>
+</div>
+
+<!-- PIE CHART -->
+<div class="chart">
+    <canvas id="riskChart"></canvas>
+</div>
+
+<table>
+<tr>
+<th>Glucose</th>
+<th>BMI</th>
+<th>Age</th>
+<th>Result</th>
+<th>Probability</th>
+<th>Date</th>
+</tr>
+
+{% for d in data %}
+<tr>
+<td>{{ d.input.Glucose }}</td>
+<td>{{ d.input.BMI }}</td>
+<td>{{ d.input.Age }}</td>
+<td>
+{% if d.prediction == 1 %}
+⚠️ High
+{% else %}
+✅ Low
+{% endif %}
+</td>
+<td>{{ (d.probability*100)|round(2) }}%</td>
+<td>{{ d.time }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<div class="logout">
+<a href="/logout">Logout</a>
+</div>
+
+<!-- CHART SCRIPT -->
+<script>
+const high = {{ high }};
+const low = {{ low }};
+
+new Chart(document.getElementById("riskChart"), {
+    type: 'pie',
+    data: {
+        labels: ['High Risk','Low Risk'],
+        datasets: [{
+            data: [high, low]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>

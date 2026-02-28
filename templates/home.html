@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Diabetes Risk Prediction</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial;
+    background:#f5f9ff;
+}
+
+/* NAVBAR */
+.nav{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 40px;
+    background:white;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:90px 20px;
+}
+
+.hero h1{
+    font-size:42px;
+    color:#1e3a8a;
+}
+
+.hero p{
+    color:#555;
+    margin:20px 0;
+    font-size:18px;
+}
+
+.btn{
+    background:#1e3a8a;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* FEATURES */
+.features{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:60px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    width:260px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+/* ABOUT */
+.about{
+    text-align:center;
+    padding:60px 20px;
+}
+
+/* FOOTER */
+.footer{
+    background:#1e3a8a;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="nav">
+    <h2> Diabetes Prediction </h2>
+    <div>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/login">Login</a>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>AI-Based Diabetes Risk Assessment</h1>
+    <p>Enter your medical details and get instant prediction using Machine Learning trained on the PIMA Diabetes dataset.</p>
+    <button class="btn" onclick="location.href='/predict_page'">Start Prediction</button>
+</div>
+
+<div class="features">
+    <div class="card">
+        <h3>Fast Prediction</h3>
+        <p>Instant results using trained Machine Learning model.</p>
+    </div>
+
+    <div class="card">
+        <h3>Secure Data</h3>
+        <p>All predictions safely stored in MongoDB Atlas.</p>
+    </div>
+
+    <div class="card">
+        <h3>Accurate Analysis</h3>
+        <p>Built using Scikit-learn and validated dataset.</p>
+    </div>
+</div>
+
+<div class="about">
+    <h2>About This Project</h2>
+
+    <p>
+    Diabetes Prediction is a Machine Learning based web application that predicts the risk of diabetes
+    using medical parameters like Glucose, BMI, Blood Pressure and Age.
+    The system is trained on the PIMA Diabetes dataset and provides instant results
+    through a Flask web interface.
+    </p>
+
+    <p>
+    The goal of this project is to demonstrate how Artificial Intelligence can help in
+    early health risk detection and support medical awareness.
+    </p>
+
+    <div class="about-images">
+        <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/2966/2966484.png">
+    </div>
+</div>
+
+<div class="footer">
+    © 2026 Diabetes Prediction| Made by Vaibhav Pratap Singh Rajawat
+</div>
+
+</body>
+</html>

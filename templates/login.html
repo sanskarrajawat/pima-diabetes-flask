@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - Diabetes Prediction</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f5f9ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.box{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    width:300px;
+    text-align:center;
+}
+
+input, select{
+    width:90%;
+    padding:8px;
+    margin:10px;
+}
+
+button{
+    background:#1e3a8a;
+    color:white;
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<h2>Login</h2>
+
+<form method="POST">
+<select name="role">
+<option value="user">User</option>
+<option value="admin">Admin</option>
+</select>
+
+<input name="username" placeholder="Username" required>
+<input type="password" name="password" placeholder="Password" required>
+
+<button>Login</button>
+</form>
+
+</div>
+
+</body>
+</html>
